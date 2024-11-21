@@ -15,10 +15,10 @@ document.getElementById('contactForm').addEventListener('submit', function(event
       return;
   }
 
-  alert('Formulario enviado con éxito.');
+  alert('Formulario enviado con éxito. Nos contactaremos a la brevedad.');
   setTimeout(function() {
     window.location.href = "./index.html";
-}, 3000);
+}, 1500);
 });
 
 
