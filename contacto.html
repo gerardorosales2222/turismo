@@ -93,42 +93,10 @@
             </div>
             <button type="submit">Enviar</button>
         </form>
-
 </main>  
 
+<script src="./assets/js/main.js"></script>
 
-<script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const name = document.getElementById('name').value;
-        const phone = document.getElementById('phone').value;
-        const residence = document.getElementById('residence').value;
-        const email = document.getElementById('email').value;
-
-        if (!name || !phone || !residence) {
-            alert('Por favor, completa todos los campos obligatorios.');
-            return;
-        }
-
-        if (!/^[0-9]{10}$/.test(phone)) {
-            alert('Por favor, ingresa un número de teléfono válido de 10 dígitos.');
-            return;
-        }
-
-        alert('Formulario enviado con éxito.');
-        // Aquí puedes agregar el código para enviar los datos al servidor
-    });
-</script>
-
-
-
-
-<script>
-    function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('active');
-    }
-</script>
 </body>
 </html>
 
