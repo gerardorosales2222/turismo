@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/letra t.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Turismo en Argentina</title>
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/menu.css">
+</head>
+<body>
+
+    
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background-color: #f0f0f0;
+            }
+    
+            .container {
+                text-align: center;
+            }
+    
+            button {
+                padding: 10px 20px;
+                margin: 10px;
+                font-size: 16px;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                background-color: #333;
+                color: white;
+            }
+    
+            button:hover {
+                background-color: #555;
+            }
+    
+            .hidden {
+                display: none;
+            }
+    
+            .calculator, .task-manager {
+                margin-top: 20px;
+            }
+    
+            .task-manager input {
+                padding: 10px;
+                margin: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+    
+            .task-manager ul {
+                list-style-type: none;
+                padding: 0;
+            }
+    
+            .task-manager li {
+                padding: 10px;
+                background-color: #fff;
+                margin: 5px 0;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+            }
+        </style>
+
+
+        <div class="container">
+            <button onclick="showCalculator()">Calculadora</button>
+            <button onclick="showTaskManager()">Organizador de Tareas</button>
+    
+            <div id="calculator" class="calculator hidden">
+                <h2>Calculadora</h2>
+                <input type="text" id="calc-display" readonly>
+                <br>
+                <button onclick="appendNumber('1')">1</button>
+                <button onclick="appendNumber('2')">2</button>
+                <button onclick="appendNumber('3')">3</button>
+                <button onclick="appendNumber('+')">+</button>
+                <br>
+                <button onclick="appendNumber('4')">4</button>
+                <button onclick="appendNumber('5')">5</button>
+                <button onclick="appendNumber('6')">6</button>
+                <button onclick="appendNumber('-')">-</button>
+                <br>
+                <button onclick="appendNumber('7')">7</button>
+                <button onclick="appendNumber('8')">8</button>
+                <button onclick="appendNumber('9')">9</button>
+                <button onclick="appendNumber('*')">*</button>
+                <br>
+                <button onclick="appendNumber('0')">0</button>
+                <button onclick="appendNumber('.')">.</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="clearDisplay()">C</button>
+            </div>
+    
+            <div id="task-manager" class="task-manager hidden">
+                <h2>Organizador de Tareas</h2>
+                <input type="text" id="task-input" placeholder="Nueva tarea">
+                <button onclick="addTask()">Agregar</button>
+                <ul id="task-list"></ul>
+            </div>
+        </div>
+    
+        <script>
+            function showCalculator() {
+                document.getElementById('calculator').classList.remove('hidden');
+                document.getElementById('task-manager').classList.add('hidden');
+            }
+    
+            function showTaskManager() {
+                document.getElementById('task-manager').classList.remove('hidden');
+                document.getElementById('calculator').classList.add('hidden');
+            }
+    
+            function appendNumber(number) {
+                const display = document.getElementById('calc-display');
+                display.value += number;
+            }
+    
+            function calculate() {
+                const display = document.getElementById('calc-display');
+                try {
+                    display.value = eval(display.value);
+                } catch {
+                    display.value = 'Error';
+                }
+            }
+    
+            function clearDisplay() {
+                document.getElementById('calc-display').value = '';
+            }
+    
+            function addTask() {
+                const taskInput = document.getElementById('task-input');
+                const taskList = document.getElementById('task-list');
+                if (taskInput.value.trim() !== '') {
+                    const li = document.createElement('li');
+                    li.textContent = taskInput.value;
+                    taskList.appendChild(li);
+                    taskInput.value = '';
+                }
+            }
+        </script>
+
+
+</body>
+</html>
