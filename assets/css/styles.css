@@ -67,6 +67,10 @@ section img{
   border-radius: 1%;
 }
 
+section .boton{
+  width: 100%;
+}
+
 h2 {
   font-size: 2em;
   text-align: center;
