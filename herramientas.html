@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="./assets/css/menu.css">
 </head>
 <body>
-
-    
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -26,7 +24,7 @@
                 background-color: #f0f0f0;
             }
     
-            .container {
+            .containerB {
                 text-align: center;
             }
     
@@ -72,12 +70,17 @@
                 border-radius: 5px;
                 border: 1px solid #ccc;
             }
+            a{
+                color: #FFF;
+                text-decoration: none;
+            }
         </style>
 
 
-        <div class="container">
+        <div class="containerB">
             <button onclick="showCalculator()">Calculadora</button>
             <button onclick="showTaskManager()">Organizador de Tareas</button>
+            <button><a href="./index.html">Volver</a></button>
     
             <div id="calculator" class="calculator hidden">
                 <h2>Calculadora</h2>
@@ -110,6 +113,7 @@
                 <button onclick="addTask()">Agregar</button>
                 <ul id="task-list"></ul>
             </div>
+
         </div>
     
         <script>
